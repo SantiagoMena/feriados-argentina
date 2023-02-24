@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  backend:
+    build: feriados-argentina-backend/.
+    ports:
+      - "8001:3000"
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo
+volumes:
+  logvolume01: {}
