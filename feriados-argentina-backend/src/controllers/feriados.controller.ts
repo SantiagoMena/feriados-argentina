@@ -108,11 +108,7 @@ export class FeriadosController {
     @param.path.string('ano') ano: number,
     @param.filter(Feriado, {exclude: 'where'}) filter?: FilterExcludingWhere<Feriado>
   ): Promise<Feriado[]> {
-    return this.feriadoRepository.find({
-      where: {
-        ano
-      }
-    });
+    return this.feriadoRepository.findByAno(ano);
   }
 
   // @patch('/feriados/{id}')
