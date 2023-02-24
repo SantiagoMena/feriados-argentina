@@ -9,6 +9,15 @@ services:
       - logvolume01:/var/log
     depends_on:
       - mongodb
+  frontend:
+    build: feriados-argentina-frontend/.
+    ports:
+      - "8002:3000"
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    depends_on:
+      - backend
   mongodb:
     image: mongo
 volumes:
