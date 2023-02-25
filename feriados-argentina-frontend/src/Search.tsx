@@ -46,7 +46,7 @@ export class Search extends React.Component<any, any>{
         return (
         <div>
             <h1 className="text-xl font-mono">Buscar un feriados por año!</h1>
-            <input className="rounded text-black-500" onChange={onChange} type="number" value={this.state.ano}/>
+            <input className="rounded text-black-500" onChange={onChange} type="number" value={this.state.ano} min={1900} max={(new Date).getFullYear()}/>
             
             <div className="flex mb-4">
                 {feriados}
