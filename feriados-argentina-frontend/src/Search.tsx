@@ -30,14 +30,27 @@ export class Search extends React.Component<any, any>{
 
         for (let i = 0; i < this.state.feriados.length; i++) {
             const feriado = this.state.feriados[i];
-            feriados.push(<p>Feriado {feriado.dia}/{feriado.mes}/{feriado.ano} por {feriado.motivo} de tipo {feriado.tipo}</p>);
+            feriados.push(
+                <div className="w-1/4 block max-w-sm rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-700">
+                    <h5
+                    className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                    {feriado.dia}/{feriado.mes}/{feriado.ano}
+                    </h5>
+                    <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                        Feriado por {feriado.motivo} de tipo {feriado.tipo}
+                    </p>
+                </div>
+            );
         }
 
         return (
         <div>
-            <h1>Buscar un feriados por año!</h1>
-            <input onChange={onChange} type="text" value={this.state.ano} className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
-            {feriados}
+            <h1 className="text-xl font-mono">Buscar un feriados por año!</h1>
+            <input className="rounded text-black-500" onChange={onChange} type="number" value={this.state.ano}/>
+            
+            <div className="flex mb-4">
+                {feriados}
+            </div>
         </div>
         );
     }
