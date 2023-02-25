@@ -9,9 +9,10 @@ export class Feriados
         let feriados = [];
         try {
             const feriadosResponse = await axios.get(`${this.url}${ano}`);
+
             feriados = feriadosResponse.status === 200 ? feriadosResponse.data : [];
         } catch (error) {
-            
+            console.error({error});
         }
 
         return feriados;
